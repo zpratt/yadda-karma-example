@@ -1,7 +1,7 @@
 module.exports = function (config) {
     config.set({
         basePath: '',
-        frameworks: ['mocha', 'chai', 'browserify'],
+        frameworks: ['mocha', 'chai', 'sinon', 'browserify'],
 
         files: [
             'node_modules/yadda/dist/yadda-0.9.8.js',
