@@ -1,40 +1,23 @@
-var Yadda = require('yadda');
-var English = Yadda.localisation.English;
-var Dictionary = Yadda.Dictionary;
+var English = require('yadda').localisation.English;
+var Dictionary = require('yadda').Dictionary;
 
-module.exports = (function() {
-
-    var wall;
-
+module.exports = (function () {
     var dictionary = new Dictionary()
         .define('NUM', /(\d+)/);
 
     var library = English.library(dictionary)
 
-    .given("$NUM green bottles are standing on the wall", function(number_of_bottles, next) {
-    	wall = new Wall(number_of_bottles);
-        next();
-    })
+        .given("A module to inject", function(next) {
+            next();
+        })
 
-    .when("$NUM green bottle accidentally falls", function(number_of_falling_bottles, next) {
-        wall.fall(number_of_falling_bottles);
-        next();
-    })
+        .when("A module depends on a module that has not been loaded", function(next) {
+            next();
+        })
 
-    .then("there (?:are|are still) $NUM green bottles standing on the wall", function(number_of_bottles, next) {
-        expect(number_of_bottles).to.equal('99');
-        next();
-    })
-
-    var Wall = function(bottles) {
-        this.bottles = bottles;
-        this.fall = function(n) {
-            this.bottles -= n;
-        }
-        this.returned = function() {
-            this.bottles++;
-        }
-    }
-
+        .then("Load the module asynchronously", function(next) {
+            expect(true).to.be.false;
+            next();
+        });
     return library;
-})();
+}());
