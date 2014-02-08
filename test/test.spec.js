@@ -15,4 +15,5 @@ module.export = (function () {
     scenarios(feature.scenarios, function (scenario, done) {
         yadda.yadda(scenario.steps, done);
     });
+    $.ajaxSetup({async: false});
 }());
