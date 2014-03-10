@@ -1,6 +1,7 @@
 module.export = (function () {
     'use strict';
     $.ajaxSetup({async: false});
+
     var Yadda = require('yadda'),
         English = Yadda.localisation.English,
         FeatureParser = Yadda.parsers.FeatureParser,
@@ -15,5 +16,6 @@ module.export = (function () {
     scenarios(feature.scenarios, function (scenario, done) {
         yadda.yadda(scenario.steps, done);
     });
-    $.ajaxSetup({async: false});
+
+    $.ajaxSetup({async: true});
 }());

@@ -7,16 +7,10 @@ module.exports = function (config) {
             'node_modules/yadda/dist/yadda-0.9.8.js',
             'node_modules/jquery/dist/jquery.min.js',
 
-            'test/*.spec.js',
             {pattern: 'test/features/*.feature', included: false}
         ],
 
         exclude: [],
-
-        preprocessors: {
-            'test/*.spec.js': 'browserify',
-            'test/features/step_definitions/*.step.js': 'browserify'
-        },
 
         browserify: {
             debug: true,
@@ -26,10 +20,23 @@ module.exports = function (config) {
             ]
         },
 
+        preprocessors: {
+            "/**/*.browserify": "browserify"
+        },
+
         reporters: ['progress'],
         port: 9999,
         colors: true,
-        logLevel: config.LOG_DEBUG,
+        logLevel: config.LOG_INFO,
+        singleRun: true,
+
+        plugins: [
+            'karma-chai',
+            'karma-mocha',
+            'karma-phantomjs-launcher',
+            'karma-browserifast',
+            'karma-sinon'
+        ],
 
         browsers: ['PhantomJS']
     });
