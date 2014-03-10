@@ -1,3 +1,4 @@
+[![devDependency Status](https://david-dm.org/zpratt/yadda-karma-example/dev-status.svg?theme=shields.io)](https://david-dm.org/zpratt/yadda-karma-example#info=devDependencies)
 yadda-karma-example
 ===================
 
