@@ -1,5 +1,7 @@
 module.export = (function () {
     'use strict';
+    var $ = require('jquery');
+
     $.ajaxSetup({async: false});
 
     var Yadda = require('yadda'),
@@ -11,11 +13,10 @@ module.export = (function () {
         loaderFeature = $.get('base/test/features/example.feature').responseText,
         feature = parser.parse(loaderFeature);
 
-    Yadda.plugins.mocha();
+    Yadda.plugins.mocha.AsyncScenarioLevelPlugin.init();
 
     scenarios(feature.scenarios, function (scenario, done) {
         yadda.yadda(scenario.steps, done);
     });
-
     $.ajaxSetup({async: true});
 }());

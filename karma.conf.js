@@ -4,9 +4,7 @@ module.exports = function (config) {
         frameworks: ['mocha', 'chai', 'sinon', 'browserify'],
 
         files: [
-            'node_modules/yadda/dist/yadda-0.9.8.js',
-            'node_modules/jquery/dist/jquery.min.js',
-
+            'test/features/step_definitions/*.step.js',
             {pattern: 'test/features/*.feature', included: false}
         ],
 
@@ -21,10 +19,11 @@ module.exports = function (config) {
         },
 
         preprocessors: {
-            "/**/*.browserify": "browserify"
+            'test/test.spec.js': 'browserify',
+            'test/features/step_definitions/*.step.js': 'browserify'
         },
 
-        reporters: ['progress'],
+        reporters: ['mocha', 'progress'],
         port: 9999,
         colors: true,
         logLevel: config.LOG_INFO,
@@ -35,7 +34,8 @@ module.exports = function (config) {
             'karma-mocha',
             'karma-phantomjs-launcher',
             'karma-browserifast',
-            'karma-sinon'
+            'karma-sinon',
+            'karma-mocha-reporter'
         ],
 
         browsers: ['PhantomJS']
