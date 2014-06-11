@@ -1,6 +1,6 @@
 {
   "name": "yadda-karma",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Example of integrating yadda and karma",
   "main": "index.js",
   "scripts": {
