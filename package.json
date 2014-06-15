@@ -3,6 +3,9 @@
   "version": "0.0.3",
   "description": "Example of integrating yadda and karma",
   "main": "index.js",
+  "engines": {
+    "node": "0.10.x"
+  },
   "scripts": {
     "test": "node_modules/karma/bin/karma start karma.conf.js"
   },
